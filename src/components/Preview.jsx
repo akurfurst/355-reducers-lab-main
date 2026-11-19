@@ -1,8 +1,10 @@
+import { useEditor } from "../context/EditorContext.jsx";
 import { PHOTOS } from "../photos.js";
 
-function Preview({ editor }) {
+function Preview() {
+  const {editor, dispatch} = useEditor();
   const photo = PHOTOS.find((p) => p.id === editor.photo);
-  const sideways = editor.rotation === 90 || editor.rotation === 270;
+  const sideways = editor.rotation === 90 || editor.rotation === 270; 
 
   const filter =
     `brightness(${editor.brightness}%) contrast(${editor.contrast}%) ` +

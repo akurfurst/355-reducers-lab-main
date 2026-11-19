@@ -1,4 +1,7 @@
-function ToolButtons({ dispatch }) {
+import { useEditor } from "../context/EditorContext";
+
+function ToolButtons() {
+  const {editor, dispatch} = useEditor();
   return (
     <div className="tools">
       <button type="button" onClick={() => dispatch({ type: "rotated_left" })}>
@@ -17,6 +20,8 @@ function ToolButtons({ dispatch }) {
       >
         Reset
       </button>
+
+      <button type="button" onClick={() => dispatch({type: "straightened"})}>Straightened</button>
     </div>
   );
 }
